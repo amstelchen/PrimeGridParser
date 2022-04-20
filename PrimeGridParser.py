@@ -5,6 +5,7 @@ import pandas as pd
 from bs4 import BeautifulSoup
 import argparse
 import time
+from lxml import html
 
 VERSION = "0.1.0"
 AUTHOR = "Copyright (C) 2022, by Michael John"
@@ -14,12 +15,15 @@ class HTMLTableParser:
     def parse_url(self, url):
         response = requests.get(url)
         soup = BeautifulSoup(response.text, 'lxml') # or use 'html.parser'
+        soup.prettify(formatter=lambda s: s.replace(u'\xc2\xa0', ''))
+        soup.prettify(formatter=lambda s: s.replace("<br>", ' '))
+        #soup.prettify(formatter=lambda s: s.replace(u'\x09', ' '))
         #return [(table['id'],self.parse_html_table(table))\
         #        for table in soup.find_all('table')]  
 
-        delimiter = ' ' #'###'                           # unambiguous string
+        #delimiter = ' ' #'###'                           # unambiguous string
         for line_break in soup.findAll('br'):       # loop through line break tags
-            line_break.replaceWith(delimiter)
+            line_break.replaceWith(' ') #u'\x0a')
 
         return soup.find_all('table')[1] # Grab the first table
 
@@ -58,7 +62,7 @@ class HTMLTableParser:
             column_marker = 0
             columns = row.find_all('td')
             for column in columns:
-                df.iat[row_marker,column_marker] = column.get_text().replace('\t',' ') #.split("###")
+                df.iat[row_marker,column_marker] = column.get_text().replace('\t','')
                 column_marker += 1
             if len(columns) > 0:
                 row_marker += 1
@@ -66,7 +70,7 @@ class HTMLTableParser:
         # Convert to float if possible
         for col in df:
             try:
-                df[col] = df[col].astype(float)
+                df[col] = df[col].astype(str).replace('nan','')
             except ValueError:
                 pass
         
