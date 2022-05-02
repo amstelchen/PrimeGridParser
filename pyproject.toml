@@ -5,6 +5,9 @@ description = "Show a PrimeGrid user's badges"
 authors = ["Michael John <michael.john@gmx.at>"]
 license = "GPL"
 
+[tool.poetry.scripts]
+PrimeGridParser = 'primegridparser.__main__:main'
+
 [tool.poetry.dependencies]
 python = "^3.8"
 requests = "^2.27.1"

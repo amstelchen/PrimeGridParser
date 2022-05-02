@@ -18,7 +18,7 @@ def parse_url(url):
 def main():
     start = time.time()
 
-    parser = argparse.ArgumentParser(description=DESC)
+    parser = argparse.ArgumentParser(prog="PrimeGridParser", description=DESC)
     parser.add_argument('userid', metavar='userid', type=int, help='PrimeGrid user-id')
     parser.add_argument('-s', '--single', help='use singleborder lines', action='store_true')
     parser.add_argument('-d', '--double', help='use double border lines', action='store_true')
@@ -42,5 +42,3 @@ def main():
         print(e)
     end = time.time()
     print('[{:2.3} seconds elapsed]'.format((end - start)))
-
-main()
