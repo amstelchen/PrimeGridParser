@@ -4,7 +4,7 @@ import requests, argparse, time
 from bs4 import BeautifulSoup
 from prettytable import from_html_one, SINGLE_BORDER, DOUBLE_BORDER
 
-VERSION = "0.2.0"
+VERSION = "0.3.0"
 AUTHOR = "Copyright (C) 2022, by Michael John"
 DESC = "Show a PrimeGrid user\'s badges."
 
