@@ -2,7 +2,7 @@
 
 pkgname=primegridparser
 _pkgname=PrimeGridParser
-pkgver=0.2.0
+pkgver=0.3.0
 pkgrel=1
 pkgdesc="Show a PrimeGrid user's badges."
 arch=('any')
@@ -13,7 +13,8 @@ depends=('python' 'python-beautifulsoup4' 'python-prettytable' 'python-requests'
 optdepends=('')
 makedepends=(python-build python-installer)
 source=("${pkgname}_${pkgver}.tar.gz"::"https://github.com/amstelchen/PrimeGridParser/archive/refs/tags/${pkgver}.tar.gz")
-sha256sums=('c69b5985fbd8aebbe7bad33b22da2c46b3fb1ccf11c8e12164de3b2b8d492003')
+#source=("${pkgname}_${pkgver}.tar.gz"::"https://github.com/amstelchen/PrimeGridParser/raw/master/dist/primegridparser-0.2.0-py3-none-any.whl")
+sha256sums=('fc4b679683d6eee262a4cc03a692e80f773e2a7c1626ae053dc7968e85888c23')
 
 build() {
     #python -m build --wheel --no-isolation
