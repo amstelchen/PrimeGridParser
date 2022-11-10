@@ -3,7 +3,7 @@
 Show a PrimeGrid user's badges.
 
 ```
-usage: PrimeGridParser [-h] [-s] [-d] [-v] userid
+usage: PrimeGridParser [-h] [-s] [-d] [-c] [-n] [-q] [-v] userid
 
 Show a PrimeGrid user's badges.
 
@@ -14,6 +14,9 @@ options:
   -h, --help     show this help message and exit
   -s, --single   use singleborder lines
   -d, --double   use double border lines
+  -c, --color    use colorized output
+  -n, --none     suppress (none) output
+  -q, --quiet    suppress debug timing output
   -v, --version  show program's version number and exit
 ```
 This will result in a table like below:
