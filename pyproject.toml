@@ -1,24 +1,29 @@
 [tool.poetry]
 name = "primegridparser"
-version = "0.4.0"
+version = "0.5.0"
 description = "Show a PrimeGrid user's badges"
 authors = ["Michael John <michael.john@gmx.at>"]
 license = "GPL"
 
 [tool.poetry.scripts]
 PrimeGridParser = 'primegridparser.__main__:main'
+primegridparser = 'primegridparser.__main__:main'
 
 [tool.poetry.dependencies]
 python = "^3.8"
-requests = "^2.27.1"
-beautifulsoup4 = "^4.11.1"
+requests = "^2.31.0"
+beautifulsoup4 = "^4.12.2"
 prettytable = "^3.2.0"
 argparse = "^1.4.0"
 python-time = "^0.3.0"
-lxml = "^4.9.0"
+lxml = "^4.9.3"
 colorama = "^0.4.6"
 
 [tool.poetry.dev-dependencies]
+
+[tool.ruff]
+# Never enforce `E501` (line length violations).
+ignore = ["E501"]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
