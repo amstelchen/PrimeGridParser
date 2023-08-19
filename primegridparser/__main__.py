@@ -1,4 +1,4 @@
-from .PrimeGridParser import main, parse_url
+from .PrimeGridParser import main
 
 if __name__ == "__main__":
     main()
