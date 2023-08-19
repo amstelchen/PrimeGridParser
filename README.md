@@ -3,7 +3,7 @@
 Show a PrimeGrid user's badges.
 
 ```
-usage: PrimeGridParser [-h] [-s] [-d] [-c] [-n] [-q] [-v] userid
+usage: PrimeGridParser [-h] [-t] [-j] [-s] [-d] [-c] [-n] [-q] [-v] userid
 
 Show a PrimeGrid user's badges.
 
@@ -12,6 +12,8 @@ positional arguments:
 
 options:
   -h, --help     show this help message and exit
+  -t, --csv      display as comma-separated list
+  -j, --json     display as JSON
   -s, --single   use singleborder lines
   -d, --double   use double border lines
   -c, --color    use colorized output
@@ -22,7 +24,7 @@ options:
 This will result in a table like below:
 
 ```
-[mic@sundance PrimeGridParser]$ ./PrimeGridParser.py 130644 -s
+$ PrimeGridParser 130644 -s
 ┌────────────────────────────────────────────┬────────────────┬───────────────┬─────────────────────────────┬────────────┬──────────────────────────────┐
 │                  Project                   │ Current Credit │ Current Badge │ Credit Level for Next Badge │ Next Badge │ Credit Needed for Next Badge │
 ├────────────────────────────────────────────┼────────────────┼───────────────┼─────────────────────────────┼────────────┼──────────────────────────────┤
