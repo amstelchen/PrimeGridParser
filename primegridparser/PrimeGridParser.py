@@ -78,13 +78,14 @@ def main():
         if vars(args)["single"]:
             table.set_style(SINGLE_BORDER)
             table = table.get_string(fields=fields, max_width=10)
+            if vars(args)["color"]:
+                table = colorize_cells(table)
             print(table)
         if vars(args)["double"]:
             table.set_style(DOUBLE_BORDER)
             table = table.get_string(fields=fields, max_width=10)
-            print(table)
-        if vars(args)["color"] and (vars(args)["single"] or vars(args)["double"]):
-            table = colorize_cells(table)
+            if vars(args)["color"]:
+                table = colorize_cells(table)
             print(table)
         if vars(args)["none"]:
             table = process_cells(table)
